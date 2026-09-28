@@ -1,0 +1,149 @@
+<svg viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wallGlow" x1="0%" y1="20%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#ffdfb0" />
+      <stop offset="35%" stop-color="#eec798" />
+      <stop offset="70%" stop-color="#c5996b" />
+      <stop offset="100%" stop-color="#7a5538" />
+    </linearGradient>
+    <linearGradient id="sunStream" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff8e7" stop-opacity="0.85" />
+      <stop offset="50%" stop-color="#fed79c" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#c28c50" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="skinLight" x1="20%" y1="30%" x2="80%" y2="80%">
+      <stop offset="0%" stop-color="#fedcb7" />
+      <stop offset="40%" stop-color="#e8b188" />
+      <stop offset="75%" stop-color="#bb784f" />
+      <stop offset="100%" stop-color="#703f26" />
+    </linearGradient>
+    <linearGradient id="hairGlow" x1="10%" y1="10%" x2="90%" y2="90%">
+      <stop offset="0%" stop-color="#dca065" />
+      <stop offset="25%" stop-color="#5a3825" />
+      <stop offset="65%" stop-color="#241610" />
+      <stop offset="100%" stop-color="#120b08" />
+    </linearGradient>
+    <linearGradient id="goldGlasses" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff3b0" />
+      <stop offset="45%" stop-color="#d4af37" />
+      <stop offset="70%" stop-color="#9a7b20" />
+      <stop offset="100%" stop-color="#f5d77f" />
+    </linearGradient>
+    <linearGradient id="sweaterDark" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#26272e" />
+      <stop offset="50%" stop-color="#15161a" />
+      <stop offset="100%" stop-color="#0c0d10" />
+    </linearGradient>
+    <linearGradient id="leafGrad1" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#c5dc49" />
+      <stop offset="20%" stop-color="#31572c" />
+      <stop offset="80%" stop-color="#1c3e19" />
+      <stop offset="100%" stop-color="#b4ce36" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#wallGlow)" />
+
+  <g id="windowFrame">
+    <rect x="0" y="0" width="180" height="1000" fill="#3a2012" />
+    <rect x="180" y="0" width="15" height="1000" fill="#201108" opacity="0.6" />
+    <rect x="0" y="0" width="160" height="1000" fill="#4d2b17" />
+    <rect x="0" y="280" width="175" height="28" fill="#5c341d" />
+    <rect x="0" y="276" width="175" height="4" fill="#804a29" />
+    <rect x="0" y="308" width="175" height="6" fill="#24140a" />
+    <rect x="150" y="0" width="25" height="1000" fill="#3a1e0f" />
+    <rect x="140" y="250" width="14" height="40" rx="3" fill="#cfab46" />
+    <circle cx="147" cy="270" r="5" fill="#fdf0b0" />
+  </g>
+
+  <g id="windowShadows" opacity="0.55">
+    <polygon points="180,0 480,0 260,1000 0,1000" fill="#2a160c" />
+    <polygon points="560,0 840,0 520,1000 240,1000" fill="#2e190e" opacity="0.8" />
+    <polygon points="980,0 1280,0 900,1000 600,1000" fill="#381f12" opacity="0.6" />
+    <polygon points="180,260 1600,640 1600,730 180,350" fill="#24130a" opacity="0.75" />
+  </g>
+
+  <g id="plantAndBooks">
+    <rect x="1220" y="800" width="380" height="200" fill="#543722" />
+    <rect x="1220" y="800" width="380" height="15" fill="#7a5133" />
+    <rect x="1480" y="580" width="45" height="220" rx="4" fill="#4d2417" />
+    <rect x="1483" y="590" width="39" height="8" fill="#b88a44" />
+    <rect x="1530" y="595" width="48" height="205" rx="4" fill="#2b3b2c" />
+    <rect x="1533" y="605" width="42" height="8" fill="#c4aa58" />
+    <rect x="1582" y="615" width="18" height="185" rx="3" fill="#6d3b24" />
+    <ellipse cx="1360" cy="800" rx="85" ry="14" fill="#151518" />
+    <path d="M1285 680 L1435 680 L1425 800 L1295 800 Z" fill="#24252a" />
+    <ellipse cx="1360" cy="680" rx="75" ry="14" fill="#1b1c20" />
+    <ellipse cx="1360" cy="682" rx="70" ry="11" fill="#121315" />
+    <path d="M1330 680 Q1310 460 1315 360 Q1330 470 1345 680 Z" fill="url(#leafGrad1)" />
+    <path d="M1355 680 Q1360 410 1380 270 Q1395 420 1375 680 Z" fill="url(#leafGrad1)" />
+    <path d="M1375 680 Q1410 450 1440 370 Q1420 480 1390 680 Z" fill="url(#leafGrad1)" />
+    <path d="M1315 680 Q1295 520 1285 440 Q1320 540 1335 680 Z" fill="url(#leafGrad1)" />
+    <path d="M1380 680 Q1430 550 1460 460 Q1420 570 1395 680 Z" fill="url(#leafGrad1)" />
+  </g>
+
+  <g id="jimsonFigure">
+    <path d="M320 1000 C360 840, 480 740, 680 720 C730 715, 830 715, 920 730 C1080 755, 1190 840, 1260 1000 Z" fill="url(#sweaterDark)" />
+    <path d="M680 720 C720 760, 840 760, 890 720 C855 775, 715 775, 680 720 Z" fill="#121316" stroke="#343740" stroke-width="3" />
+    <path d="M760 765 L785 810 L810 765" fill="none" stroke="#2c2d33" stroke-width="2.5" />
+    <path d="M710 590 L700 730 C745 745, 825 745, 870 730 L860 590 Z" fill="url(#skinLight)" />
+    <path d="M700 600 C740 660, 830 655, 870 600 L870 645 C820 685, 740 685, 695 645 Z" fill="#4a2615" opacity="0.75" />
+    <path d="M625 430 C625 350, 680 270, 785 270 C890 270, 955 350, 950 440 C945 530, 885 625, 780 635 C705 640, 640 560, 625 430 Z" fill="url(#skinLight)" />
+    <path d="M635 410 C610 410, 600 440, 608 470 C615 500, 638 505, 645 480 Z" fill="#e29b72" />
+    <path d="M620 435 C615 450, 620 475, 630 475" stroke="#965230" stroke-width="3" fill="none" />
+    <path d="M935 425 C955 425, 968 450, 960 480 C952 508, 935 510, 928 490 Z" fill="#af6841" />
+    <path d="M945 445 C950 460, 946 480, 938 480" stroke="#5a2e18" stroke-width="3" fill="none" />
+    <path d="M610 370 L950 510 L945 560 L620 440 Z" fill="#482516" opacity="0.55" />
+    <path d="M615 470 L935 600 L920 635 L625 510 Z" fill="#3a1c10" opacity="0.6" />
+    <path d="M665 390 C685 380, 715 385, 730 395" stroke="#23150d" stroke-width="9" stroke-linecap="round" />
+    <path d="M775 395 C795 385, 830 380, 855 395" stroke="#1a0f0a" stroke-width="8" stroke-linecap="round" />
+    <path d="M670 422 C685 412, 715 412, 730 424" stroke="#4a2a1b" stroke-width="3.5" fill="none" />
+    <ellipse cx="700" cy="425" rx="14" ry="10" fill="#20130c" />
+    <circle cx="695" cy="422" r="4" fill="#ffffff" />
+    <circle cx="702" cy="425" r="2" fill="#ffdca8" />
+    <path d="M675 428 C690 435, 715 435, 728 428" stroke="#7a462b" stroke-width="2.5" fill="none" />
+    <path d="M785 425 C800 414, 830 414, 845 426" stroke="#381c10" stroke-width="3.5" fill="none" />
+    <ellipse cx="815" cy="428" rx="13" ry="9" fill="#1b0e08" />
+    <circle cx="810" cy="425" r="3.5" fill="#ffffff" />
+    <path d="M790 432 C805 438, 825 438, 840 432" stroke="#522a18" stroke-width="2" fill="none" />
+    <path d="M740 400 L730 480 C720 500, 740 515, 755 512 C765 510, 770 500, 765 480 Z" fill="#d8966c" />
+    <path d="M725 500 C715 505, 725 515, 735 514" stroke="#522a18" stroke-width="2.5" fill="none" />
+    <path d="M775 500 C785 505, 775 515, 765 514" stroke="#3a1c10" stroke-width="2.5" fill="none" />
+    <ellipse cx="745" cy="505" rx="6" ry="4" fill="#ffe7cf" opacity="0.8" />
+    <path d="M705 560 C735 555, 775 555, 805 562" stroke="#5c2919" stroke-width="4" stroke-linecap="round" />
+    <path d="M715 562 C740 575, 770 575, 795 564" fill="#9b4e36" />
+    <path d="M725 578 C745 588, 765 588, 785 578" stroke="#723624" stroke-width="3" stroke-linecap="round" />
+    <g id="glasses" stroke="url(#goldGlasses)" stroke-width="4.5" fill="none">
+      <circle cx="698" cy="425" r="48" />
+      <circle cx="698" cy="425" r="46" stroke="#fff4cf" stroke-width="1.5" opacity="0.6" />
+      <circle cx="818" cy="430" r="46" />
+      <circle cx="818" cy="430" r="44" stroke="#fff4cf" stroke-width="1.5" opacity="0.5" />
+      <path d="M746 422 C755 416, 762 416, 772 423" stroke-width="4" />
+      <path d="M650 422 L605 435" stroke-width="3.5" />
+      <path d="M864 428 L935 445" stroke-width="3.5" />
+      <path d="M665 400 Q705 390 730 415" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.65" />
+    </g>
+    <g id="curlyHair" fill="url(#hairGlow)">
+      <path d="M610 380 C580 340, 590 280, 620 230 C660 170, 740 140, 820 145 C900 150, 970 190, 990 260 C1010 330, 980 400, 955 430 C940 370, 930 330, 900 300 C850 250, 720 250, 660 300 C620 330, 615 360, 610 380 Z" />
+      <circle cx="710" cy="180" r="45" />
+      <circle cx="770" cy="165" r="50" />
+      <circle cx="835" cy="175" r="48" />
+      <circle cx="890" cy="205" r="46" />
+      <circle cx="655" cy="210" r="42" />
+      <circle cx="605" cy="275" r="38" fill="#e0a365" opacity="0.9" />
+      <circle cx="595" cy="335" r="36" fill="#ca8c50" opacity="0.9" />
+      <circle cx="605" cy="385" r="30" fill="#a46d3c" opacity="0.85" />
+      <path d="M590 260 Q615 285 585 315 Q615 340 590 370" stroke="#fce2aa" stroke-width="6" fill="none" stroke-linecap="round" />
+      <path d="M660 280 C680 310, 670 345, 690 355 C705 340, 715 305, 700 280 Z" fill="#3a2216" />
+      <path d="M710 270 C730 310, 735 345, 755 350 C765 330, 760 295, 740 270 Z" fill="#2e190e" />
+      <path d="M765 270 C785 305, 795 335, 815 335 C820 315, 810 285, 795 265 Z" fill="#24130a" />
+      <path d="M820 280 C845 310, 860 340, 875 330 C880 305, 865 280, 845 265 Z" fill="#1d0e07" />
+      <path d="M680 200 Q720 180 740 215" stroke="#f6ce96" stroke-width="4" fill="none" stroke-linecap="round" />
+      <path d="M750 175 Q790 160 810 195" stroke="#f6ce96" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M820 185 Q860 170 875 205" stroke="#e8b174" stroke-width="4" fill="none" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <rect width="1600" height="1000" fill="url(#sunStream)" opacity="0.35" />
+  <rect width="1600" height="1000" fill="none" stroke="#000000" stroke-width="30" opacity="0.25" />
+</svg>

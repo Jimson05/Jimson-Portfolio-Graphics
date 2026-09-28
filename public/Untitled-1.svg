@@ -1,0 +1,357 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Background Gradient: Pure Pitch Black on Left extending smoothly to right -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="58%" stop-color="#000000" />
+      <stop offset="85%" stop-color="#06070a" />
+      <stop offset="100%" stop-color="#0d0e12" />
+    </linearGradient>
+
+    <!-- Gaussian Blurs for Photographic Softness -->
+    <filter id="skinSoft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" />
+    </filter>
+    <filter id="shadowSoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" />
+    </filter>
+    <filter id="rimGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Skin Foundation: Realistic Grayscale Photometric Lighting from Left Window -->
+    <radialGradient id="faceKeyLight" cx="42%" cy="38%" r="55%" fx="35%" fy="32%">
+      <stop offset="0%" stop-color="#f8f9fb" />
+      <stop offset="25%" stop-color="#d4d8e0" />
+      <stop offset="50%" stop-color="#a0a5b2" />
+      <stop offset="75%" stop-color="#555966" />
+      <stop offset="100%" stop-color="#1f2128" />
+    </radialGradient>
+
+    <radialGradient id="cheekHighlight" cx="45%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="40%" stop-color="#e8ecf2" stop-opacity="0.75" />
+      <stop offset="80%" stop-color="#adb2bf" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#adb2bf" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Natural Window Blind Shadow Gradient -->
+    <linearGradient id="blindShadow1" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#111317" stop-opacity="0.88" />
+      <stop offset="45%" stop-color="#1c1e25" stop-opacity="0.82" />
+      <stop offset="80%" stop-color="#2c2f38" stop-opacity="0.70" />
+      <stop offset="100%" stop-color="#111317" stop-opacity="0.85" />
+    </linearGradient>
+
+    <linearGradient id="blindShadow2" x1="0%" y1="0%" x2="100%" y2="90%">
+      <stop offset="0%" stop-color="#0e1014" stop-opacity="0.92" />
+      <stop offset="60%" stop-color="#181a20" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#242730" stop-opacity="0.75" />
+    </linearGradient>
+
+    <!-- Sweatshirt Dark Fabric Gradients -->
+    <linearGradient id="sweaterFabric" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#22242c" />
+      <stop offset="35%" stop-color="#14151b" />
+      <stop offset="70%" stop-color="#0a0b0e" />
+      <stop offset="100%" stop-color="#020203" />
+    </linearGradient>
+
+    <linearGradient id="collarRib" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d303a" />
+      <stop offset="50%" stop-color="#1b1c24" />
+      <stop offset="100%" stop-color="#0f1015" />
+    </linearGradient>
+
+    <!-- Hair Depth Gradient -->
+    <linearGradient id="hairBaseGrad" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#555a68" />
+      <stop offset="25%" stop-color="#282a33" />
+      <stop offset="60%" stop-color="#121318" />
+      <stop offset="100%" stop-color="#060608" />
+    </linearGradient>
+
+    <!-- Fade to Absolute Black Mask on the Left Body Contour -->
+    <linearGradient id="torsoFadeLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="1" />
+      <stop offset="30%" stop-color="#000000" stop-opacity="0.95" />
+      <stop offset="70%" stop-color="#000000" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. Pure Pitch Black Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad)" />
+
+  <!-- 2. Studio Subject: Jimson Usayan on the Right 45% of Canvas -->
+  <g id="jimsonSubject" transform="translate(150, 45)">
+    <!-- Crewneck Sweatshirt & Broad Shoulders -->
+    <path
+      d="M800 1035 C860 840, 1020 740, 1260 730 C1500 730, 1680 840, 1750 1035 Z"
+      fill="url(#sweaterFabric)"
+    />
+
+    <!-- Sweatshirt Folds & Shading -->
+    <path
+      d="M980 920 C1080 840, 1200 810, 1300 820"
+      stroke="#2f333f"
+      stroke-width="12"
+      stroke-linecap="round"
+      filter="url(#skinSoft)"
+      opacity="0.6"
+    />
+    <path
+      d="M1350 830 C1450 850, 1560 910, 1620 980"
+      stroke="#1f212a"
+      stroke-width="16"
+      stroke-linecap="round"
+      filter="url(#skinSoft)"
+      opacity="0.8"
+    />
+
+    <!-- Crewneck Collar: Chunky Ribbed Band -->
+    <path
+      d="M1165 730 C1205 780, 1315 780, 1355 730 C1325 798, 1195 798, 1165 730 Z"
+      fill="url(#collarRib)"
+      stroke="#3b3f4d"
+      stroke-width="3"
+    />
+    {/* Collar Center Ribbed Triangle Insert (Distinctive sweatshirt detail from photo) */}
+    <path
+      d="M1248 788 L1265 830 L1282 788"
+      fill="#14151b"
+      stroke="#383c4a"
+      stroke-width="2.5"
+    />
+    {/* Inner collar shadow */}
+    <path
+      d="M1175 732 C1210 765, 1310 765, 1345 732"
+      fill="none"
+      stroke="#0c0d10"
+      stroke-width="6"
+    />
+
+    <!-- Strong Neck Base & Throat -->
+    <path
+      d="M1180 595 L1175 745 C1220 765, 1300 765, 1345 745 L1340 595 Z"
+      fill="url(#faceKeyLight)"
+    />
+    <!-- Deep Neck Shadow below Chin -->
+    <path
+      d="M1172 610 C1215 675, 1310 670, 1348 610 L1345 650 C1305 695, 1215 695, 1172 650 Z"
+      fill="#0c0d11"
+      opacity="0.85"
+      filter="url(#skinSoft)"
+    />
+
+    <!-- Head & Face Volume -->
+    <path
+      d="M1105 440 C1105 325, 1170 230, 1275 230 C1385 230, 1450 325, 1445 450 C1440 560, 1375 660, 1265 670 C1185 675, 1115 580, 1105 440 Z"
+      fill="url(#faceKeyLight)"
+    />
+
+    <!-- Left Ear (Facing window light source) -->
+    <g id="leftEar">
+      <path
+        d="M1115 420 C1088 420, 1076 450, 1085 480 C1092 510, 1115 515, 1122 490 Z"
+        fill="#c2c7d2"
+      />
+      <path
+        d="M1098 445 C1092 460, 1098 485, 1108 485"
+        stroke="#737885"
+        stroke-width="3"
+        fill="none"
+      />
+      <ellipse cx="1102" cy="460" rx="3" ry="8" fill="#4d515c" />
+    </g>
+
+    <!-- Right Ear (Softly obscured in shadow) -->
+    <g id="rightEar">
+      <path
+        d="M1428 435 C1450 435, 1462 460, 1454 490 C1446 518, 1428 520, 1420 500 Z"
+        fill="#757987"
+      />
+      <path
+        d="M1438 455 C1444 470, 1440 490, 1432 490"
+        stroke="#3c3f4a"
+        stroke-width="3"
+        fill="none"
+      />
+    </g>
+
+    <!-- Photometric Window Light: Luminous Cheek & Temple Highlight -->
+    <ellipse cx="1195" cy="445" rx="75" ry="90" fill="url(#cheekHighlight)" />
+    <ellipse cx="1275" cy="350" rx="90" ry="50" fill="url(#cheekHighlight)" opacity="0.8" />
+    <ellipse cx="1235" cy="495" rx="35" ry="25" fill="#ffffff" opacity="0.6" filter="url(#skinSoft)" />
+
+    <!-- Signature Windowpane Blind Shadows (Cutting across face from upper-left to lower-right) -->
+    <!-- Shadow Band 1: Across right cheek & nose -->
+    <path
+      d="M1080 370 L1460 520 L1455 585 L1095 440 Z"
+      fill="url(#blindShadow1)"
+      filter="url(#shadowSoft)"
+    />
+    <!-- Shadow Band 2: Across lower jaw & neck -->
+    <path
+      d="M1085 480 L1440 625 L1425 675 L1100 535 Z"
+      fill="url(#blindShadow2)"
+      filter="url(#shadowSoft)"
+    />
+
+    <!-- Eyebrows: Soft Natural Groomed Shape -->
+    <g id="eyebrows">
+      <!-- Left Eyebrow -->
+      <path
+        d="M1145 392 C1165 380, 1198 385, 1215 398"
+        stroke="#16181f"
+        stroke-width="11"
+        stroke-linecap="round"
+        filter="url(#skinSoft)"
+      />
+      <path
+        d="M1150 392 C1170 382, 1195 386, 1212 396"
+        stroke="#242630"
+        stroke-width="6"
+        stroke-linecap="round"
+      />
+
+      <!-- Right Eyebrow -->
+      <path
+        d="M1272 398 C1295 385, 1330 380, 1355 398"
+        stroke="#121319"
+        stroke-width="10"
+        stroke-linecap="round"
+        filter="url(#skinSoft)"
+      />
+      <path
+        d="M1275 398 C1298 387, 1328 383, 1350 396"
+        stroke="#1f212a"
+        stroke-width="5"
+        stroke-linecap="round"
+      />
+    </g>
+
+    <!-- Eyes: Looking gently to the left with warm expression -->
+    <g id="eyes">
+      <!-- Left Eye -->
+      <path d="M1148 430 C1165 418, 1198 418, 1215 432" stroke="#22242c" stroke-width="4" fill="none" stroke-linecap="round" />
+      <ellipse cx="1182" cy="433" rx="14" ry="10" fill="#121318" />
+      <circle cx="1178" cy="430" r="4.5" fill="#ffffff" />
+      <circle cx="1184" cy="433" r="2" fill="#d2d6e0" />
+      <!-- Lower eyelid shadow -->
+      <path d="M1155 438 C1172 446, 1195 446, 1210 438" stroke="#686d7a" stroke-width="2.5" fill="none" opacity="0.7" />
+
+      <!-- Right Eye -->
+      <path d="M1282 433 C1298 420, 1328 420, 1345 434" stroke="#181a20" stroke-width="4" fill="none" stroke-linecap="round" />
+      <ellipse cx="1312" cy="436" rx="13" ry="9" fill="#0e0f14" />
+      <circle cx="1308" cy="433" r="4" fill="#ffffff" />
+      <path d="M1288 440 C1304 447, 1324 447, 1338 440" stroke="#484c57" stroke-width="2.5" fill="none" opacity="0.6" />
+    </g>
+
+    <!-- Nose: Sculpted with Bridge Highlight & Soft Nostrils -->
+    <g id="nose">
+      <path
+        d="M1230 400 L1216 488 C1206 508, 1228 522, 1243 519 C1254 517, 1260 508, 1254 488 Z"
+        fill="#b2b7c4"
+      />
+      <path d="M1210 508 C1200 514, 1210 523, 1220 522" stroke="#404450" stroke-width="3" fill="none" stroke-linecap="round" />
+      <path d="M1264 508 C1274 514, 1264 523, 1254 522" stroke="#2a2c35" stroke-width="3" fill="none" stroke-linecap="round" />
+      <!-- Luminous tip reflection -->
+      <ellipse cx="1234" cy="512" rx="7" ry="5" fill="#ffffff" opacity="0.85" />
+      <path d="M1225 415 L1232 490" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" opacity="0.75" />
+    </g>
+
+    <!-- Friendly Smile & Lips -->
+    <g id="lips">
+      <path
+        d="M1188 570 C1220 565, 1265 565, 1295 572"
+        stroke="#282a32"
+        stroke-width="4.5"
+        stroke-linecap="round"
+      />
+      <path d="M1198 572 C1225 586, 1260 586, 1285 574" fill="#757a87" />
+      <path
+        d="M1208 588 C1230 598, 1255 598, 1275 588"
+        stroke="#4d515e"
+        stroke-width="3.5"
+        stroke-linecap="round"
+      />
+      <!-- Dimple shadow -->
+      <circle cx="1182" cy="568" r="4" fill="#32343e" opacity="0.5" />
+      <circle cx="1302" cy="570" r="4" fill="#20222a" opacity="0.5" />
+    </g>
+
+    <!-- Round Thin Wireframe Spectacles (Precise signature glasses) -->
+    <g id="glasses" stroke="#ffffff" stroke-width="3.5" fill="none">
+      <!-- Left Lens Round Frame -->
+      <circle cx="1178" cy="433" r="54" stroke="#f4f6fa" stroke-width="3.8" />
+      <circle cx="1178" cy="433" r="52" stroke="#ffffff" stroke-width="1.2" opacity="0.85" />
+      <!-- Right Lens Round Frame -->
+      <circle cx="1316" cy="438" r="51" stroke="#d8dce6" stroke-width="3.8" />
+      <circle cx="1316" cy="438" r="49" stroke="#ffffff" stroke-width="1.2" opacity="0.7" />
+      <!-- Spectacles Bridge -->
+      <path d="M1232 431 C1242 425, 1252 425, 1265 432" stroke-width="3.2" stroke="#f4f6fa" />
+      <!-- Left Temple Arm -->
+      <path d="M1124 430 L1078 444" stroke-width="3.2" stroke="#caced8" />
+      <!-- Right Temple Arm -->
+      <path d="M1367 436 L1438 454" stroke-width="3.2" stroke="#8d92a0" />
+      <!-- Glass Specular Curved Glint on Left Lens -->
+      <path
+        d="M1142 405 Q1185 394, 1215 422"
+        stroke="#ffffff"
+        stroke-width="3.5"
+        stroke-linecap="round"
+        opacity="0.92"
+      />
+      <circle cx="1200" cy="415" r="2.5" fill="#ffffff" />
+    </g>
+
+    <!-- Tousled Voluminous Curly Hair -->
+    <g id="curlyHair" fill="url(#hairBaseGrad)">
+      <!-- Main Volume Silhouette -->
+      <path
+        d="M1090 385 C1055 345, 1065 275, 1095 210 C1140 130, 1230 85, 1320 90 C1415 95, 1495 140, 1515 225 C1535 310, 1500 390, 1468 420 C1450 360, 1440 310, 1405 270 C1350 210, 1205 210, 1140 270 C1100 310, 1095 355, 1090 385 Z"
+      />
+
+      <!-- Curly Hair Mass Clusters -->
+      <circle cx="1195" cy="135" r="54" />
+      <circle cx="1265" cy="115" r="58" />
+      <circle cx="1345" cy="125" r="56" />
+      <circle cx="1415" cy="160" r="52" />
+      <circle cx="1135" cy="165" r="48" />
+
+      <!-- Left Rim Light Curly Locks (Catching the bright window light) -->
+      <g id="rimHair" filter="url(#rimGlow)">
+        <circle cx="1080" cy="235" r="44" fill="#d2d7e2" opacity="0.95" />
+        <circle cx="1070" cy="305" r="42" fill="#adb3c2" opacity="0.9" />
+        <circle cx="1080" cy="370" r="36" fill="#888e9e" opacity="0.85" />
+        <!-- Curly rim strands -->
+        <path d="M1062 215 Q1096 248, 1058 285 Q1096 318, 1062 355" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" />
+        <path d="M1080 180 Q1115 210, 1085 245" stroke="#f5f7fb" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      </g>
+
+      <!-- Forehead Fringe Curls Hanging Naturally -->
+      <path d="M1142 235 C1168 275, 1155 315, 1178 328 C1195 310, 1205 268, 1188 235 Z" fill="#323540" />
+      <path d="M1205 225 C1230 275, 1238 315, 1262 322 C1272 300, 1265 258, 1238 225 Z" fill="#242732" />
+      <path d="M1268 225 C1292 270, 1305 305, 1328 305 C1334 285, 1320 248, 1300 220 Z" fill="#1b1d26" />
+      <path d="M1330 235 C1360 275, 1378 310, 1395 300 C1402 275, 1382 242, 1358 220 Z" fill="#14151d" />
+
+      <!-- Specular Silver/White High-Precision Hair Strands -->
+      <path d="M1165 155 Q1215 130, 1242 170" stroke="#f5f7fa" stroke-width="4" fill="none" stroke-linecap="round" />
+      <path d="M1245 125 Q1295 108, 1320 150" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M1330 135 Q1375 120, 1392 160" stroke="#e0e4ee" stroke-width="4" fill="none" stroke-linecap="round" />
+      <path d="M1410 170 Q1450 160, 1465 195" stroke="#c0c5d2" stroke-width="3.5" fill="none" stroke-linecap="round" />
+    </g>
+
+    <!-- Torso Seamless Edge Blend to Solid Black on the Left -->
+    <rect x="700" y="680" width="460" height="400" fill="url(#torsoFadeLeft)" />
+  </g>
+
+  <!-- Absolute Pure Pitch Black Left Scrim -->
+  <rect x="0" y="0" width="1020" height="1080" fill="#000000" />
+  <rect x="980" y="0" width="280" height="1080" fill="url(#torsoFadeLeft)" />
+</svg>
