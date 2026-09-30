@@ -39,11 +39,8 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   const [bgPosition, setBgPosition] = useState<string>(() => {
     return localStorage.getItem('jimson_hero_bg_pos') || 'right center';
   });
-  const [isBgControlOpen, setIsBgControlOpen] = useState(false);
-  const [urlInput, setUrlInput] = useState('');
   const [isDraggingOver, setIsDraggingOver] = useState(false);
   const [uploadFeedback, setUploadFeedback] = useState<string | null>(null);
-  const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   const handleFileUpload = (file: File) => {
     if (!file.type.startsWith('image/')) {
@@ -87,29 +84,6 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
     e.preventDefault();
     e.stopPropagation();
     setIsDraggingOver(false);
-  };
-
-  const handleApplyUrl = () => {
-    if (!urlInput.trim()) return;
-    setBgImage(urlInput.trim());
-    try {
-      localStorage.setItem('jimson_hero_bg', urlInput.trim());
-    } catch {}
-    setUploadFeedback('Custom image URL applied!');
-    setUrlInput('');
-    setIsBgControlOpen(false);
-    setTimeout(() => setUploadFeedback(null), 3000);
-  };
-
-  const handleResetBg = () => {
-    setBgImage('/Untitled-1.jpg');
-    setBgPosition('right center');
-    try {
-      localStorage.removeItem('jimson_hero_bg');
-      localStorage.removeItem('jimson_hero_bg_pos');
-    } catch {}
-    setUploadFeedback('Reset to default portrait');
-    setTimeout(() => setUploadFeedback(null), 3000);
   };
 
   const bannerRef = React.useRef<HTMLDivElement>(null);
@@ -199,19 +173,6 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               transformStyle: 'preserve-3d',
             }}
           >
-            {/* Hidden File Input for Image Upload */}
-            <input
-              type="file"
-              ref={fileInputRef}
-              accept="image/*"
-              className="hidden"
-              onChange={(e) => {
-                if (e.target.files && e.target.files[0]) {
-                  handleFileUpload(e.target.files[0]);
-                }
-              }}
-            />
-
             {/* Drag & Drop Visual Overlay */}
             {isDraggingOver && (
               <div className="absolute inset-0 z-50 bg-black/85 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center border-2 border-dashed border-[#c6f225] animate-fade-in pointer-events-none">
@@ -222,125 +183,17 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                   Drop image to replace background
                 </p>
                 <p className="text-sm font-mono text-[#c6f225]">
-                  Supports JPG, PNG, WEBP, SVG • Instant client preview
+                  Supports JPG, PNG, WEBP, SVG
                 </p>
               </div>
             )}
 
-            {/* Floating Top-Right "Replace Background" Action Bar */}
-            <div className="absolute top-4 right-4 z-40 flex items-center gap-2">
-              {uploadFeedback && (
-                <div className="px-3 py-1 rounded-full bg-[#13151b]/90 border border-[#c6f225]/60 text-xs font-mono text-[#c6f225] shadow-lg animate-fade-in">
-                  {uploadFeedback}
-                </div>
-              )}
-
-              <button
-                type="button"
-                onClick={() => setIsBgControlOpen(!isBgControlOpen)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0e1015]/90 hover:bg-[#1a1d26] border border-white/20 hover:border-[#c6f225]/70 text-white hover:text-[#c6f225] text-xs font-mono font-medium shadow-xl transition-all duration-150 backdrop-blur-sm"
-                title="Replace background photo (upload file or paste URL)"
-              >
-                <span className="material-symbols-outlined text-sm">photo_camera</span>
-                <span>Replace Background</span>
-                <span className="material-symbols-outlined text-xs">
-                  {isBgControlOpen ? 'expand_less' : 'expand_more'}
-                </span>
-              </button>
-
-              {/* Background Control Popover */}
-              {isBgControlOpen && (
-                <div className="absolute right-0 top-10 w-72 p-3.5 bg-[#0e1015]/98 border border-[#2b2f3a] rounded-xl shadow-2xl backdrop-blur-xl flex flex-col gap-3 text-left animate-fade-in z-50">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-white">
-                      Background Photo
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => setIsBgControlOpen(false)}
-                      className="text-white/50 hover:text-white text-xs"
-                    >
-                      ✕
-                    </button>
-                  </div>
-
-                  {/* 1. Upload Local File */}
-                  <button
-                    type="button"
-                    onClick={() => fileInputRef.current?.click()}
-                    className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-[#c6f225] hover:bg-[#b0d820] text-black font-semibold text-xs transition-colors"
-                  >
-                    <span className="material-symbols-outlined text-base">upload_file</span>
-                    <span>Upload Image from Device</span>
-                  </button>
-                  <p className="text-[10px] text-white/40 -mt-1 text-center">
-                    Select your Untitled-1.jpg or drag &amp; drop onto banner
-                  </p>
-
-                  {/* 2. Paste Image URL */}
-                  <div className="flex flex-col gap-1 pt-1">
-                    <label className="text-[10px] uppercase font-mono text-white/60">
-                      Or Paste Image URL:
-                    </label>
-                    <div className="flex gap-1">
-                      <input
-                        type="url"
-                        value={urlInput}
-                        onChange={(e) => setUrlInput(e.target.value)}
-                        placeholder="https://.../photo.jpg"
-                        className="flex-1 bg-black/60 border border-white/15 focus:border-[#c6f225] rounded px-2 py-1 text-xs text-white placeholder-white/30 outline-none"
-                      />
-                      <button
-                        type="button"
-                        onClick={handleApplyUrl}
-                        className="px-2.5 py-1 bg-white/10 hover:bg-white/20 text-white rounded text-xs font-mono"
-                      >
-                        Set
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* 3. Position Preset */}
-                  <div className="flex flex-col gap-1 pt-1">
-                    <label className="text-[10px] uppercase font-mono text-white/60">
-                      Alignment:
-                    </label>
-                    <div className="grid grid-cols-3 gap-1">
-                      {[
-                        { label: 'Right', val: 'right center' },
-                        { label: 'Center', val: 'center center' },
-                        { label: 'Left', val: 'left center' },
-                      ].map((pos) => (
-                        <button
-                          key={pos.val}
-                          type="button"
-                          onClick={() => {
-                            setBgPosition(pos.val);
-                            localStorage.setItem('jimson_hero_bg_pos', pos.val);
-                          }}
-                          className={`py-1 text-[11px] font-mono rounded border ${
-                            bgPosition === pos.val
-                              ? 'bg-[#c6f225]/20 border-[#c6f225] text-[#c6f225]'
-                              : 'bg-black/40 border-white/10 text-white/70 hover:border-white/30'
-                          }`}
-                        >
-                          {pos.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* 4. Reset Button */}
-                  <button
-                    type="button"
-                    onClick={handleResetBg}
-                    className="w-full py-1 text-[11px] font-mono text-white/40 hover:text-white/90 border-t border-white/10 pt-2 text-center transition-colors"
-                  >
-                    Reset to Default Image
-                  </button>
-                </div>
-              )}
-            </div>
+            {/* Notification Toast if an image is dropped */}
+            {uploadFeedback && (
+              <div className="absolute top-4 right-4 z-40 px-3 py-1 rounded-full bg-[#13151b]/90 border border-[#c6f225]/60 text-xs font-mono text-[#c6f225] shadow-lg animate-fade-in">
+                {uploadFeedback}
+              </div>
+            )}
 
             {/* White Square Anchor Handles at Perimeter (as shown in image) */}
             <div className="absolute -top-1.5 -left-1.5 w-3 h-3 bg-white border border-black/40 z-30 pointer-events-none" />
